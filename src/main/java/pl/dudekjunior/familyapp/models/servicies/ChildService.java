@@ -3,7 +3,6 @@ package pl.dudekjunior.familyapp.models.servicies;
 import org.springframework.stereotype.Service;
 import pl.dudekjunior.familyapp.models.ChildModel;
 import pl.dudekjunior.familyapp.models.FamilyModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import java.util.List;
 public class ChildService {
 
     public void addChild(){
-
+        //todo
     }
 
     public ChildModel readChild(){

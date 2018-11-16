@@ -1,7 +1,6 @@
 package pl.dudekjunior.familyapp.models;
 
 import lombok.Data;
-
 import java.time.LocalDate;
 
 @Data

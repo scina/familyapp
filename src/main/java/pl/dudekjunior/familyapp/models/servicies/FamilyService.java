@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.dudekjunior.familyapp.models.ChildModel;
 import pl.dudekjunior.familyapp.models.FamilyModel;
 import pl.dudekjunior.familyapp.models.FatherModel;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 public class FamilyService {
 
     public void createFamily(){
-
+        //todo
     }
 
     public void addFatherToFamily(FatherModel father, FamilyModel family){

@@ -1,7 +1,6 @@
 package pl.dudekjunior.familyapp.models;
 
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 

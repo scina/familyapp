@@ -7,7 +7,7 @@ import pl.dudekjunior.familyapp.models.FatherModel;
 public class FatherService {
 
     public void addFather(){
-
+        //todo
     }
 
     public FatherModel readFather(){

@@ -1,7 +1,6 @@
 package pl.dudekjunior.familyapp.models.entities;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
