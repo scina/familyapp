@@ -4,6 +4,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+//todo I think that entity is not necessary
+
 @Entity
 @Data
 public class FamilyEntity {
