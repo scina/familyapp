@@ -1,6 +1,7 @@
 package pl.dudekjunior.familyapp.models.entities;
 
 import lombok.Data;
+import pl.dudekjunior.familyapp.models.Gender;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ public class ChildEntity {
     private int id;
     private String name;
     private String surname;
-    private int pesel;
+    private String pesel;
     LocalDate bornDate;
-    private int gender;
+    private Gender gender;
 }

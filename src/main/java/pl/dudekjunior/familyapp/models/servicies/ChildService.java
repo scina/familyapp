@@ -1,8 +1,9 @@
 package pl.dudekjunior.familyapp.models.servicies;
 
 import org.springframework.stereotype.Service;
-import pl.dudekjunior.familyapp.models.ChildModel;
 import pl.dudekjunior.familyapp.models.FamilyModel;
+import pl.dudekjunior.familyapp.models.entities.ChildEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +14,18 @@ public class ChildService {
         //todo
     }
 
-    public ChildModel readChild(){
-        return new ChildModel();
+    public void collectChildData(){
+        //todo
     }
 
-    public List<ChildModel> childsByFamily(FamilyModel family){
-        List<ChildModel> childs = new ArrayList<>();
+    public ChildEntity readChild(){
+        return new ChildEntity();
+    }
+
+    public List<ChildEntity> getChildrenByFamily(FamilyModel family){
+        List<ChildEntity> children = new ArrayList<>();
         family.getFather();
         //todo wyszukiwanie encji dzieci w bazie danych i dodanie ich do listy
-        return childs;
+        return children;
     }
 }

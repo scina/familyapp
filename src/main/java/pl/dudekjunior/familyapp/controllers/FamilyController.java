@@ -2,6 +2,8 @@ package pl.dudekjunior.familyapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import pl.dudekjunior.familyapp.models.FamilyModel;
+import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 
 @Controller
 public class FamilyController {
@@ -11,7 +13,7 @@ public class FamilyController {
         return "index";
     }
 
-    public void createFamily(){
+    public void addFamily(){
         //todo
     }
 
@@ -19,7 +21,7 @@ public class FamilyController {
         //todo
     }
 
-    public void addChildToFamily(){
+    public void addChildToFamily(ChildEntity child, FamilyModel family){
         //todo
     }
 }

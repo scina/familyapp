@@ -1,9 +1,10 @@
 package pl.dudekjunior.familyapp.models.servicies;
 
 import org.springframework.stereotype.Service;
-import pl.dudekjunior.familyapp.models.ChildModel;
 import pl.dudekjunior.familyapp.models.FamilyModel;
-import pl.dudekjunior.familyapp.models.FatherModel;
+import pl.dudekjunior.familyapp.models.entities.ChildEntity;
+import pl.dudekjunior.familyapp.models.entities.FatherEntity;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,20 +12,19 @@ import java.util.List;
 @Service
 public class FamilyService {
 
-    public void createFamily(){
-        //todo
+    public FamilyModel createFamily(){
+        FamilyModel family = new FamilyModel();
+        return family;
     }
 
-    public void addFatherToFamily(FatherModel father, FamilyModel family){
+    public void addFatherToFamily(FatherEntity father, FamilyModel family){
         family.setFather(father);
     }
 
-    public void addChildToFamily(ChildModel child, FamilyModel family){
-        family.getChilds().add(child);
-    }
-
-    public FatherModel readFamily(int familyId){
-        return new FatherModel();
+    public void addChildToFamily(List<ChildEntity> children, FamilyModel family){
+        for(ChildEntity child : children) {
+            family.getChildren().add(child);
+        }
     }
 
     public List<FamilyModel> searchFamilyByChildName(String childName){
