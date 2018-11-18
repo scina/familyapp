@@ -20,4 +20,5 @@ public class ChildEntity {
     private String pesel;
     LocalDate bornDate;
     private Gender gender;
+    private int fatherId;
 }
