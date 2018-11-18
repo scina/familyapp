@@ -3,10 +3,7 @@ package pl.dudekjunior.familyapp.models.entities;
 import lombok.Data;
 import pl.dudekjunior.familyapp.models.Gender;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -20,5 +17,7 @@ public class ChildEntity {
     private String pesel;
     LocalDate bornDate;
     private Gender gender;
-    private int fatherId;
+    @ManyToOne
+    @JoinColumn(name = "father_id")
+    private FatherEntity father;
 }

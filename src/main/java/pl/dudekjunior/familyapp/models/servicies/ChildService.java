@@ -34,7 +34,7 @@ public class ChildService {
         childEntity.setPesel(childForm.getPesel());
         childEntity.setBornDate(childForm.getBornDate());
         setGender(childEntity, childForm.getGender());
-        childEntity.setFatherId(fatherEntity.getId());
+        childEntity.setFather(fatherEntity);
         return childEntity;
     }
 
