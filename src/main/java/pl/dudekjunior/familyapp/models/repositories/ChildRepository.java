@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface ChildRepository extends CrudRepository<ChildEntity, Integer> {
-    public Optional<List<ChildEntity>> findByFatherId(int fatherId);
+    Optional<List<ChildEntity>> findByFatherId(int fatherId);
 }
