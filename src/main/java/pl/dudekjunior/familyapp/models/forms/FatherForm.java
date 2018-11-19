@@ -10,5 +10,5 @@ public class FatherForm {
     private String name;
     private String surname;
     private String pesel;
-    private LocalDate bonrDate;
+    private LocalDate bornDate;
 }

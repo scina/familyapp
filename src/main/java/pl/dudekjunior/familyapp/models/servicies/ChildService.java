@@ -33,23 +33,9 @@ public class ChildService {
         childEntity.setSurname(childForm.getSurname());
         childEntity.setPesel(childForm.getPesel());
         childEntity.setBornDate(childForm.getBornDate());
-        setGender(childEntity, childForm.getGender());
+        childEntity.setGender(childForm.getGender());
         childEntity.setFather(fatherEntity);
         return childEntity;
-    }
-
-    private void setGender(ChildEntity childEntity, char gender){
-        if(gender == 'm'){
-            childEntity.setGender(Gender.MALE);
-        }else if(gender == 'w'){
-            childEntity.setGender(Gender.FEMALE);
-        }else{
-            childEntity.setGender(Gender.UNKNOWN);
-        }
-    }
-
-    public ChildEntity readChild(){
-        return new ChildEntity();
     }
 
     public List<ChildEntity> getChildrenByFamily(FamilyModel family){

@@ -2,11 +2,9 @@ package pl.dudekjunior.familyapp.models.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,4 +16,7 @@ public class FatherEntity {
     private String surname;
     private String pesel;
     LocalDate bornDate;
+
+    @OneToMany(mappedBy = "father", fetch = FetchType.EAGER, orphanRemoval = true)
+    List<ChildEntity> children;
 }
