@@ -19,15 +19,15 @@ public class ChildService {
     private final ChildRepository childRepository;
 
     @Autowired
-    public ChildService(ChildRepository childRepository){
+    public ChildService(ChildRepository childRepository) {
         this.childRepository = childRepository;
     }
 
-    public void addChild(ChildForm childForm, FatherEntity fatherEntity){
+    public void addChild(ChildForm childForm, FatherEntity fatherEntity) {
         childRepository.save(createChildEntity(childForm, fatherEntity));
     }
 
-    private ChildEntity createChildEntity(ChildForm childForm, FatherEntity fatherEntity){
+    private ChildEntity createChildEntity(ChildForm childForm, FatherEntity fatherEntity) {
         ChildEntity childEntity = new ChildEntity();
         childEntity.setName(childForm.getName());
         childEntity.setSurname(childForm.getSurname());
@@ -38,11 +38,7 @@ public class ChildService {
         return childEntity;
     }
 
-    public List<ChildEntity> getChildrenByFamily(FamilyModel family){
-        Optional<List<ChildEntity>> children = childRepository.findByFatherId(family.getFather().getId());
-        if(children.isPresent()){
-            return children.get();
-        }
-        return new ArrayList<>();
+    public List<ChildEntity> getChildrenByFamily(FamilyModel family) {
+        return childRepository.findByFatherId(family.getFather().getId());
     }
 }

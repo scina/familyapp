@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ChildRepository extends CrudRepository<ChildEntity, Integer> {
-    Optional<List<ChildEntity>> findByFatherId(int fatherId);
+    List<ChildEntity> findByFatherId(int fatherId);
 }

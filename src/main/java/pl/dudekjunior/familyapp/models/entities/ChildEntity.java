@@ -16,7 +16,8 @@ public class ChildEntity {
     private String surname;
     private String pesel;
     LocalDate bornDate;
-    private char gender;
+    @Enumerated
+    private Gender gender;
     @ManyToOne
     @JoinColumn(name = "father_id")
     private FatherEntity father;

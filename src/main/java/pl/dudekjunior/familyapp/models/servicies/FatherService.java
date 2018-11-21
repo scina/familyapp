@@ -12,11 +12,11 @@ public class FatherService {
     private final FatherRepository fatherRepository;
 
     @Autowired
-    public FatherService(FatherRepository fatherRepository){
+    public FatherService(FatherRepository fatherRepository) {
         this.fatherRepository = fatherRepository;
     }
 
-    public FatherEntity addFather(FatherForm fatherForm){
+    public FatherEntity addFather(FatherForm fatherForm) {
         FatherEntity father = new FatherEntity();
         father.setName(fatherForm.getName());
         father.setSurname(fatherForm.getSurname());
@@ -25,7 +25,7 @@ public class FatherService {
         return father;
     }
 
-    public FatherEntity getFatherById(int fatherId){
+    public FatherEntity getFatherById(int fatherId) {
         return fatherRepository.findById(fatherId).get();
     }
 }
