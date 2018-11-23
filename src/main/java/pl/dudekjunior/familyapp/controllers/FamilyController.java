@@ -16,6 +16,11 @@ public class FamilyController {
         return "index";
     }
 
+    @GetMapping("/addFamily")
+    public String addFamily() {
+        return "addFamily";
+    }
+
     @GetMapping("/addFather")
     public String addFather(Model model) {
         model.addAttribute("fatherForm", new FatherForm());
@@ -26,9 +31,5 @@ public class FamilyController {
     public String addChild(Model model) {
         model.addAttribute("childForm", new ChildForm());
         return "addFamily";
-    }
-
-    public void readFamily() {
-        //todo
     }
 }

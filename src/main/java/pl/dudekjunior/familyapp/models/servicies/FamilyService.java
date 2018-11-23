@@ -14,6 +14,10 @@ public class FamilyService {
 
     private FamilyModel family;
 
+    public FamilyModel createFamily(){
+        return family = new FamilyModel();
+    }
+
     public void addFatherToFamily(FatherEntity father, FamilyModel family) {
         family.setFather(father);
     }
