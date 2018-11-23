@@ -1,6 +1,7 @@
 package pl.dudekjunior.familyapp.models.forms;
 
 import lombok.Data;
+import pl.dudekjunior.familyapp.models.Gender;
 
 import java.time.LocalDate;
 
@@ -10,5 +11,5 @@ public class ChildForm {
     private String surname;
     private String pesel;
     private LocalDate bornDate;
-    private char gender;
+    private Gender gender;
 }
