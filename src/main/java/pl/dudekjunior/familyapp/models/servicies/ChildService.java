@@ -3,15 +3,12 @@ package pl.dudekjunior.familyapp.models.servicies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.dudekjunior.familyapp.models.FamilyModel;
-import pl.dudekjunior.familyapp.models.Gender;
 import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 import pl.dudekjunior.familyapp.models.entities.FatherEntity;
 import pl.dudekjunior.familyapp.models.forms.ChildForm;
 import pl.dudekjunior.familyapp.models.repositories.ChildRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ChildService {
@@ -23,8 +20,8 @@ public class ChildService {
         this.childRepository = childRepository;
     }
 
-    public void addChild(ChildForm childForm, FatherEntity fatherEntity) {
-        childRepository.save(createChildEntity(childForm, fatherEntity));
+    public ChildEntity addChild(ChildForm childForm, FatherEntity fatherEntity) {
+        return childRepository.save(createChildEntity(childForm, fatherEntity));
     }
 
     private ChildEntity createChildEntity(ChildForm childForm, FatherEntity fatherEntity) {

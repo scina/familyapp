@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Family</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div style="width: 600px; margin: 0 auto;">
+        <div th:if="${family != null}">
+            <div th:if="${family.getFather() == null}">
+                <a href="/addfather">
+                    <button type="button" class="btn btn-primary">Add Father</button>
+                </a>
+            </div>
+            <div th:if="${family.getFather() != null}">
+                <div th:text="${family.getFather().getName()}"></div>
+                <a href="/addchild">
+                    <button type="button" class="btn btn-primary">Add Child</button>
+                </a>
+            </div>
+        </div>
+        <div th:if="${family == null}">
+            <a href="/createfamily"><button type="button" class="btn btn-primary">Create Family</button></a>
+        </div>
+        <div>
+            <a href="/">
+                <button type="button" class="btn btn-primary">Home</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

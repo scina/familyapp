@@ -17,6 +17,12 @@ public class FatherService {
     }
 
     public FatherEntity addFather(FatherForm fatherForm) {
+        FatherEntity father = getFatherEntity(fatherForm);
+        fatherRepository.save(father);
+        return father;
+    }
+
+    private FatherEntity getFatherEntity(FatherForm fatherForm) {
         FatherEntity father = new FatherEntity();
         father.setName(fatherForm.getName());
         father.setSurname(fatherForm.getSurname());
