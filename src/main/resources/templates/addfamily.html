@@ -17,7 +17,16 @@
                 </a>
             </div>
             <div th:if="${family.getFather() != null}">
-                <div th:text="${family.getFather().getName()}"></div>
+                <div>
+                    <span th:text="${family.getFather().getName()}"></span>
+                    <span th:text="${family.getFather().getSurname()}"></span>
+                    <span th:text="${family.getFather().getPesel()}"></span>
+                </div>
+                <div th:each = "child : ${family.getChildren()}">
+                    <span th:text="${child.getName()}"></span>
+                    <span th:text="${child.getSurname()}"></span>
+                    <span th:text="${child.getPesel()}"></span>
+                </div>
                 <a href="/addchild">
                     <button type="button" class="btn btn-primary">Add Child</button>
                 </a>
@@ -25,6 +34,11 @@
         </div>
         <div th:if="${family == null}">
             <a href="/createfamily"><button type="button" class="btn btn-primary">Create Family</button></a>
+        </div>
+        <div>
+            <a href="/">
+                <button type="button" class="btn btn-primary">Finish</button>
+            </a>
         </div>
         <div>
             <a href="/">

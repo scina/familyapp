@@ -25,24 +25,23 @@
             <input type="text" class="form-control"  placeholder="Surname" th:field="*{surname}"><br>
             <input type="text" class="form-control"  placeholder="Pesel" th:field="*{pesel}"><br>
             <input type="date" class="form-control"  placeholder="Born Date" th:field="*{bornDate}"><br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="MALE" checked th:field="*{gender}">
-                <label class="form-check-label" for="exampleRadios1">
-                    MALE
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="FEMALE" th:field="*{gender}">
-                <label class="form-check-label" for="exampleRadios2">
-                    FEMALE
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="UNKNOWN" th:field="*{gender}">
-                <label class="form-check-label" for="exampleRadios3">
-                    UNKNOWN
-                </label>
-            </div>
+        <div class="form-group row">
+                <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10" id="inputGender">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="MALE" th:field="*{gender}">
+                        <label class="form-check-label" for="inlineRadio1">MALE</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="FEMALE" th:field="*{gender}">
+                        <label class="form-check-label" for="inlineRadio2">FEMALE</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="UNKNOWN" th:field="*{gender}">
+                        <label class="form-check-label" for="inlineRadio3">UNKNOWN</label>
+                    </div>
+                </div>
+        </div>
             <button type="submit" class="btn btn-primary mb-2">Add Child</button>
         </form>
     </div>

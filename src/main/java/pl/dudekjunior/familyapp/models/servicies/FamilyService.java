@@ -1,11 +1,11 @@
 package pl.dudekjunior.familyapp.models.servicies;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.dudekjunior.familyapp.models.FamilyModel;
 import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 import pl.dudekjunior.familyapp.models.entities.FatherEntity;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,15 @@ import java.util.List;
 @Service
 @Data
 public class FamilyService {
+
+    private final ChildService childService;
+    private final FatherService fatherService;
+
+    @Autowired
+    public FamilyService(ChildService childService, FatherService fatherService) {
+        this.childService = childService;
+        this.fatherService = fatherService;
+    }
 
     private FamilyModel family;
 
@@ -49,4 +58,10 @@ public class FamilyService {
     }
 
 
+    public void getFamilyByFatherId(int fatherId) {
+        FatherEntity fatherEntity = fatherService.getFatherById(fatherId);
+        createFamily();
+        family.setFather(fatherEntity);
+        family.setChildren(fatherEntity.getChildren());
+    }
 }

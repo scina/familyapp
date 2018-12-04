@@ -35,7 +35,10 @@ public class ChildService {
         return childEntity;
     }
 
-    public List<ChildEntity> getChildrenByFamily(FamilyModel family) {
+    public List<ChildEntity> getChildrenByFatherId(FamilyModel family) {
         return childRepository.findByFatherId(family.getFather().getId());
+    }
+    public List<ChildEntity> getChildrenByName(String childName) {
+        return childRepository.findByName(childName);
     }
 }

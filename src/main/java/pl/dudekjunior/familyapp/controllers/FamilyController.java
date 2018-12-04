@@ -5,13 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 import pl.dudekjunior.familyapp.models.forms.ChildForm;
 import pl.dudekjunior.familyapp.models.forms.FatherForm;
 import pl.dudekjunior.familyapp.models.servicies.ChildService;
 import pl.dudekjunior.familyapp.models.servicies.FamilyService;
 import pl.dudekjunior.familyapp.models.servicies.FatherService;
+
+import java.util.List;
 
 @Controller
 public class FamilyController {
@@ -70,5 +74,52 @@ public class FamilyController {
         familyService.addChildToFamily(childService.addChild(childForm, familyService.getFamily().getFather()));
         redirectAttributes.addFlashAttribute("family", familyService.getFamily());
         return "redirect:/addfamily";
+    }
+    @GetMapping("/searchfamily")
+    public String searchFamily(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("childForm", new ChildForm());
+        return "redirect:/";
+    }
+    @PostMapping("/searchFamilyByChildName")
+    public String searchChildByName(@ModelAttribute("childForm") ChildForm childForm,
+                                    RedirectAttributes redirectAttributes) {
+        List<ChildEntity> childEntities = childService.getChildrenByName(childForm.getName());
+        redirectAttributes.addFlashAttribute("foundChildren", childEntities);
+        return "redirect:/";
+    }
+    @PostMapping("/searchFamilyByChildSurname")
+    public String searchFamilyByChildSurname(@ModelAttribute("childForm") ChildForm childForm,
+                                    RedirectAttributes redirectAttributes) {
+        List<ChildEntity> childEntities = childService.getChildrenByName(childForm.getName());
+        redirectAttributes.addFlashAttribute("foundChildren", childEntities);
+        return "redirect:/";
+    }
+    @PostMapping("/searchFamilyByChildGender")
+    public String searchFamilyByChildGender(@ModelAttribute("childForm") ChildForm childForm,
+                                    RedirectAttributes redirectAttributes) {
+        List<ChildEntity> childEntities = childService.getChildrenByName(childForm.getName());
+        redirectAttributes.addFlashAttribute("foundChildren", childEntities);
+        return "redirect:/";
+    }
+    @PostMapping("/searchFamilyByChildPesel")
+    public String searchFamilyByChildPesel(@ModelAttribute("childForm") ChildForm childForm,
+                                    RedirectAttributes redirectAttributes) {
+        List<ChildEntity> childEntities = childService.getChildrenByName(childForm.getName());
+        redirectAttributes.addFlashAttribute("foundChildren", childEntities);
+        return "redirect:/";
+    }
+    @PostMapping("/searchFamilyByChildDate")
+    public String searchFamilyByChildDate(@ModelAttribute("childForm") ChildForm childForm,
+                                           RedirectAttributes redirectAttributes) {
+        List<ChildEntity> childEntities = childService.getChildrenByName(childForm.getName());
+        redirectAttributes.addFlashAttribute("foundChildren", childEntities);
+        return "redirect:/";
+    }
+    @GetMapping("/getFamilyByFatherId/{fatherId}")
+    public String getFamilyByFatherId(@PathVariable("fatherId") int fatherId,
+                                         RedirectAttributes redirectAttributes) {
+        familyService.getFamilyByFatherId(fatherId);
+        redirectAttributes.addFlashAttribute("family", familyService.getFamily());
+        return "redirect:/";
     }
 }
