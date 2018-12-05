@@ -6,9 +6,6 @@ import org.springframework.stereotype.Service;
 import pl.dudekjunior.familyapp.models.FamilyModel;
 import pl.dudekjunior.familyapp.models.entities.ChildEntity;
 import pl.dudekjunior.familyapp.models.entities.FatherEntity;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Data
@@ -36,27 +33,6 @@ public class FamilyService {
     public void addChildToFamily(ChildEntity childEntity) {
         family.getChildren().add(childEntity);
     }
-
-    public List<FamilyModel> searchFamilyByChildName(String childName) {
-        return new ArrayList<>();
-    }
-
-    public List<FamilyModel> searchFamilyByChildSurname(String childSurname) {
-        return new ArrayList<>();
-    }
-
-    public List<FamilyModel> searchFamilyByChildPesel(int pesel) {
-        return new ArrayList<>();
-    }
-
-    public List<FamilyModel> searchFamilyByChildBornDate(LocalDate bornDate) {
-        return new ArrayList<>();
-    }
-
-    public List<FamilyModel> searchFamilyByChildGender(int gender) {
-        return new ArrayList<>();
-    }
-
 
     public void getFamilyByFatherId(int fatherId) {
         FatherEntity fatherEntity = fatherService.getFatherById(fatherId);

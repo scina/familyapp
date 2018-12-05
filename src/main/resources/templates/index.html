@@ -7,6 +7,13 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <style>
+        .family {
+            width: 100%;
+            background: #1337C8;
+            color: #5A72D2;
+        }
+    </style>
 </head>
 <body>
     <nav class = "nav">
@@ -63,30 +70,30 @@
             </div>
         </form>
         </div>
-    </div>
-    <div th:if = "${foundChildren != null}">
-        <div th:each = "child : ${foundChildren}">
-            <a th:href = "'getFamilyByFatherId/' + ${child.getFather().getId()}">
-                <span th:text= "${child.getFather().getName()}"></span>
-                <span th:text= "${child.getFather().getSurname()}"></span>
-                <span th:text= "${child.getFather().getPesel()}"></span>
-                <span th:text= "${child.getFather().getBornDate()}"></span>
-            </a>
+        <div th:if = "${foundChildren != null}">
+            <div th:each = "child : ${foundChildren}">
+                <a th:href = "'getFamilyByFatherId/' + ${child.getFather().getId()}">
+                    <span th:text= "${child.getFather().getName()}"></span>
+                    <span th:text= "${child.getFather().getSurname()}"></span>
+                    <span th:text= "${child.getFather().getPesel()}"></span>
+                    <span th:text= "${child.getFather().getBornDate()}"></span>
+                </a>
+            </div>
         </div>
-    </div>
-    <div th:if="${family != null}">
-        <div th:if="${family.getFather() != null}">
-            <div>
+        <div th:if="${family != null}" class = "family">
+            <div th:if="${family.getFather() != null}" class = "father">
                 <span th:text="${family.getFather().getName()}"></span>
                 <span th:text="${family.getFather().getSurname()}"></span>
                 <span th:text="${family.getFather().getPesel()}"></span>
                 <span th:text="${family.getFather().getBornDate()}"></span>
             </div>
-            <div th:each = "child : ${family.getChildren()}">
+            <div class = "clear"></div>
+            <div th:each = "child : ${family.getChildren()}" class = "child">
                 <span th:text="${child.getName()}"></span>
                 <span th:text="${child.getSurname()}"></span>
                 <span th:text="${child.getPesel()}"></span>
             </div>
+            <div class = "clear"></div>
         </div>
     </div>
 </body>

@@ -16,5 +16,4 @@ public interface ChildRepository extends CrudRepository<ChildEntity, Integer> {
     List<ChildEntity> findByPesel(String pesel);
     List<ChildEntity> findByBornDate(LocalDate bornDate);
     List<ChildEntity> findByGender(Gender gender);
-
 }

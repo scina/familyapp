@@ -31,7 +31,8 @@ public class FatherService {
         return father;
     }
 
-    public FatherEntity getFatherById(int fatherId) {
+    FatherEntity getFatherById(int fatherId) {
         return fatherRepository.findById(fatherId).get();
+        //todo exception
     }
 }
