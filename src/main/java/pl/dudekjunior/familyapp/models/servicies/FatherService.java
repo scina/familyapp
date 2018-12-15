@@ -6,6 +6,8 @@ import pl.dudekjunior.familyapp.models.entities.FatherEntity;
 import pl.dudekjunior.familyapp.models.forms.FatherForm;
 import pl.dudekjunior.familyapp.models.repositories.FatherRepository;
 
+import java.util.Optional;
+
 @Service
 public class FatherService {
 
@@ -31,8 +33,14 @@ public class FatherService {
         return father;
     }
 
-    FatherEntity getFatherById(int fatherId) {
-        return fatherRepository.findById(fatherId).get();
-        //todo exception
+    FatherEntity getFatherById(int fatherId) throws NullPointerException {
+        Optional<FatherEntity> father = fatherRepository.findById(fatherId);
+        if(father.isPresent()) {
+            return father.get();
+        } else {
+            throw new NullPointerException();
+        }
     }
+
+
 }

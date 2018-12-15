@@ -23,10 +23,8 @@ public class FamilyController {
     }
 
     @GetMapping("/getFamilyByFatherId/{fatherId}")
-    public String getFamilyByFatherId(@PathVariable("fatherId") int fatherId,
-                                         RedirectAttributes redirectAttributes) {
-        familyService.getFamilyByFatherId(fatherId);
-        redirectAttributes.addFlashAttribute("family", familyService.getFamily());
+    public String getFamilyByFatherId(@PathVariable("fatherId") int fatherId, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("family", familyService.getFamilyByFatherId(fatherId));
         return "redirect:/";
     }
 }

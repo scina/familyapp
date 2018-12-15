@@ -34,10 +34,12 @@ public class FamilyService {
         family.getChildren().add(childEntity);
     }
 
-    public void getFamilyByFatherId(int fatherId) {
+    public FamilyModel getFamilyByFatherId(int fatherId) throws NullPointerException {
+        fatherService.getFatherById(fatherId);
         FatherEntity fatherEntity = fatherService.getFatherById(fatherId);
         createFamily();
         family.setFather(fatherEntity);
         family.setChildren(fatherEntity.getChildren());
+        return family;
     }
 }
