@@ -19,12 +19,12 @@ public class FatherService {
     }
 
     public FatherEntity addFather(FatherForm fatherForm) {
-        FatherEntity father = getFatherEntity(fatherForm);
+        FatherEntity father = createFatherEntity(fatherForm);
         fatherRepository.save(father);
         return father;
     }
 
-    private FatherEntity getFatherEntity(FatherForm fatherForm) {
+    private FatherEntity createFatherEntity(FatherForm fatherForm) {
         FatherEntity father = new FatherEntity();
         father.setName(fatherForm.getName());
         father.setSurname(fatherForm.getSurname());
@@ -33,12 +33,12 @@ public class FatherService {
         return father;
     }
 
-    FatherEntity getFatherById(int fatherId) throws NullPointerException {
+    FatherEntity getFatherById(int fatherId) {
         Optional<FatherEntity> father = fatherRepository.findById(fatherId);
         if(father.isPresent()) {
             return father.get();
         } else {
-            throw new NullPointerException();
+            throw new ResourceNotFoundException();
         }
     }
 

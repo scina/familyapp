@@ -34,8 +34,7 @@ public class FamilyService {
         family.getChildren().add(childEntity);
     }
 
-    public FamilyModel getFamilyByFatherId(int fatherId) throws NullPointerException {
-        fatherService.getFatherById(fatherId);
+    public FamilyModel getFamilyByFatherId(int fatherId) {
         FatherEntity fatherEntity = fatherService.getFatherById(fatherId);
         createFamily();
         family.setFather(fatherEntity);
