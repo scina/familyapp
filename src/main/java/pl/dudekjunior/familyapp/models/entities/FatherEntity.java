@@ -21,6 +21,6 @@ public class FatherEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate bornDate;
 
-    @OneToMany(mappedBy = "father", fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "father", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     List<ChildEntity> children;
 }

@@ -10,30 +10,25 @@
 </head>
 <body>
     <div style="width: 600px; margin: 0 auto;">
-        <div th:if="${family != null}">
-            <div th:if="${family.getFather() == null}">
-                <a href="/addfather">
-                    <button type="button" class="btn btn-primary">Add Father</button>
-                </a>
-            </div>
-            <div th:if="${family.getFather() != null}">
-                <div>
-                    <span th:text="${family.getFather().getName()}"></span>
-                    <span th:text="${family.getFather().getSurname()}"></span>
-                    <span th:text="${family.getFather().getPesel()}"></span>
-                </div>
-                <div th:each = "child : ${family.getChildren()}">
-                    <span th:text="${child.getName()}"></span>
-                    <span th:text="${child.getSurname()}"></span>
-                    <span th:text="${child.getPesel()}"></span>
-                </div>
-                <a href="/addchild">
-                    <button type="button" class="btn btn-primary">Add Child</button>
-                </a>
-            </div>
-        </div>
         <div th:if="${family == null}">
-            <a href="/createfamily"><button type="button" class="btn btn-primary">Create Family</button></a>
+            <a href="/addfather">
+                <button type="button" class="btn btn-primary">Add Father</button>
+            </a>
+        </div>
+        <div th:if="${family != null}">
+            <div>
+                <span th:text="${family.getName()}"></span>
+                <span th:text="${family.getSurname()}"></span>
+                <span th:text="${family.getPesel()}"></span>
+            </div>
+            <div th:each = "child : ${family.getChildren()}">
+                <span th:text="${child.getName()}"></span>
+                <span th:text="${child.getSurname()}"></span>
+                <span th:text="${child.getPesel()}"></span>
+            </div>
+            <a th:href="'/addchild/' + ${family.getId()}">
+                <button type="button" class="btn btn-primary">Add Child</button>
+            </a>
         </div>
         <div>
             <a href="/">

@@ -81,11 +81,11 @@
             </div>
         </div>
         <div th:if="${family != null}" class = "family">
-            <div th:if="${family.getFather() != null}" class = "father">
-                <span th:text="${family.getFather().getName()}"></span>
-                <span th:text="${family.getFather().getSurname()}"></span>
-                <span th:text="${family.getFather().getPesel()}"></span>
-                <span th:text="${family.getFather().getBornDate()}"></span>
+            <div class = "father">
+                <span th:text="${family.getName()}"></span>
+                <span th:text="${family.getSurname()}"></span>
+                <span th:text="${family.getPesel()}"></span>
+                <span th:text="${family.getBornDate()}"></span>
             </div>
             <div class = "clear"></div>
             <div th:each = "child : ${family.getChildren()}" class = "child">

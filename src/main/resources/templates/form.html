@@ -20,7 +20,7 @@
         </form>
     </div>
     <div th:if="${childForm != null}">
-        <form action="/addchild" method="post" th:object="${childForm}">
+        <form th:action="'/addchild/' + ${father.getId()}" method="post" th:object="${childForm}">
             <input type="text" class="form-control"  placeholder="Name" th:field="*{name}"><br>
             <input type="text" class="form-control"  placeholder="Surname" th:field="*{surname}"><br>
             <input type="text" class="form-control"  placeholder="Pesel" th:field="*{pesel}"><br>
