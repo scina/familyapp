@@ -6,6 +6,8 @@ import pl.dudekjunior.familyapp.models.entities.FatherEntity;
 import pl.dudekjunior.familyapp.models.forms.FatherForm;
 import pl.dudekjunior.familyapp.models.repositories.FatherRepository;
 
+import java.util.Optional;
+
 @Service
 public class FatherService {
 
@@ -17,6 +19,12 @@ public class FatherService {
     }
 
     public FatherEntity addFather(FatherForm fatherForm) {
+        FatherEntity father = getFatherEntity(fatherForm);
+        fatherRepository.save(father);
+        return father;
+    }
+
+    private FatherEntity getFatherEntity(FatherForm fatherForm) {
         FatherEntity father = new FatherEntity();
         father.setName(fatherForm.getName());
         father.setSurname(fatherForm.getSurname());
@@ -25,7 +33,13 @@ public class FatherService {
         return father;
     }
 
-    public FatherEntity getFatherById(int fatherId) {
-        return fatherRepository.findById(fatherId).get();
+    FatherEntity getFatherById(int fatherId) throws NullPointerException {
+        Optional<FatherEntity> father = fatherRepository.findById(fatherId);
+        if(father.isPresent()) {
+            return father.get();
+        } else {
+            throw new NullPointerException();
+        }
     }
+
 }

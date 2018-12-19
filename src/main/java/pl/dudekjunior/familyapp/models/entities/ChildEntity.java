@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
+@Table(name = "child")
 public class ChildEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +16,7 @@ public class ChildEntity {
     private String name;
     private String surname;
     private String pesel;
+    @Column(name = "born_date")
     LocalDate bornDate;
     @Enumerated
     private Gender gender;
