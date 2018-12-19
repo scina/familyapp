@@ -33,7 +33,7 @@ public class FatherService {
         return father;
     }
 
-    FatherEntity getFatherById(int fatherId) {
+    public FatherEntity getFatherById(int fatherId) {
         Optional<FatherEntity> father = fatherRepository.findById(fatherId);
         if(father.isPresent()) {
             return father.get();
